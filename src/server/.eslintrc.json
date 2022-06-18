@@ -10,6 +10,18 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    },
     "rules": {
         "linebreak-style": "off",
         "no-unused-vars": "warn"

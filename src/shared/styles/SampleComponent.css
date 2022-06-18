@@ -1,0 +1,10 @@
+.SampleComponentMain {
+    background-color: cadetblue;
+    height          : 200px;
+    width           : vw;
+}
+
+.SampleComponentText {
+    font-size  : large;
+    font-weight: 700;
+}

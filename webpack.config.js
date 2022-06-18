@@ -18,7 +18,8 @@ const browserConfig = {
       { test: scriptExtensions, use: 'babel-loader', exclude: '/node_modules/' },
       {
         test: /\.css$/,
-        use: ['style-loader',
+        use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -31,6 +32,7 @@ const browserConfig = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
       __isBrowser__: 'true',
     }),
@@ -58,7 +60,14 @@ const serverConfig = {
       { test: scriptExtensions, use: 'babel-loader' },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          }],
       },
     ],
   },
