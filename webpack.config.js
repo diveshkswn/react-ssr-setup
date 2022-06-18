@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+require('dotenv').config();
 
 const scriptExtensions = /\.(tsx|ts|js|jsx|mjs)$/;
 
@@ -22,6 +23,9 @@ const browserConfig = {
   plugins: [
     new webpack.DefinePlugin({
       __isBrowser__: 'true',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ],
   resolve: {
@@ -51,6 +55,9 @@ const serverConfig = {
     new MiniCssExtractPlugin(),
     new webpack.DefinePlugin({
       __isBrowser__: 'false',
+    }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
     }),
   ],
   resolve: {
