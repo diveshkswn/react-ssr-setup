@@ -4,9 +4,9 @@
   "description": "React Server Side Rendering Setup with React router",
   "main": "index.jsx",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "start": "node dist/server.js",
-    "dev": "webpack && node dist/server.js"
+    "dev": "webpack --mode=development && node dist/server.js"
   },
   "babel": {
     "presets": [
@@ -23,7 +23,7 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.6",
+    "css-loader": "^5.2.7",
     "eslint": "^8.18.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -32,6 +32,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "mini-css-extract-plugin": "^2.0.0",
+    "style-loader": "^3.3.1",
     "webpack": "^5.42.0",
     "webpack-cli": "^4.7.2",
     "webpack-node-externals": "^3.0.0"

@@ -16,7 +16,17 @@ const browserConfig = {
   module: {
     rules: [
       { test: scriptExtensions, use: 'babel-loader', exclude: '/node_modules/' },
-      { test: /\.css$/, use: 'css-loader' },
+      {
+        test: /\.css$/,
+        use: ['style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          }],
+      },
 
     ],
   },
@@ -31,6 +41,7 @@ const browserConfig = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
+  devtool: 'inline-source-map',
 };
 
 const serverConfig = {
