@@ -14,7 +14,7 @@ const browserConfig = {
   },
   module: {
     rules: [
-      { test: scriptExtensions, use: 'babel-loader' },
+      { test: scriptExtensions, use: 'babel-loader', exclude: '/node_modules/' },
       { test: /\.css$/, use: 'css-loader' },
 
     ],
