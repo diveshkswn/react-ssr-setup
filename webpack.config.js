@@ -60,7 +60,8 @@ const serverConfig = {
       { test: scriptExtensions, use: 'babel-loader' },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader,
+        use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {

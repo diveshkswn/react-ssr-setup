@@ -17,7 +17,9 @@ function renderer() {
     <title>React SSR App</title>
 </head>
 <body>
-    <div id="root">${markup}</div>
+
+<!-- SSR with ReactDom.renderToString() in below div -->
+    <div id="root">${markup}</div> 
 </body>
 </html>
     `;
