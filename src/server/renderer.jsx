@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
+import serialize from 'serialize-javascript';
 import App from '../shared/App';
-import serialize from "serialize-javascript"
-const data = {
-  name : "Divesh",
-  age : 25,
-}
-const markup = ReactDom.renderToString(<App serverData={data} />);
 
-function renderer() {
+function renderer({ initialData }) {
+  // console.log('initialData server ::: ', initialData);
+  const markup = ReactDom.renderToString(<App serverData={initialData} />);
+
   return `
     <!DOCTYPE html>
 <html lang="en">
@@ -19,17 +17,21 @@ function renderer() {
     <script src="/bundle.js" defer></script>
   <link href="/main.css" rel="stylesheet" />
     <title>React SSR App</title>
-    <script>
-    window.INITIAL_DATA = ${serialize(data)}
-    </script>
+
 </head>
 <body>
 
 <!-- SSR with ReactDom.renderToString() in below div -->
     <div id="root">${markup}</div> 
+
+    <!-- Initial Data script for Client Side -->
+    <script>
+    window.INITIAL_DATA = ${serialize(initialData)}
+    </script>
 </body>
 </html>
     `;
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export { renderer };
