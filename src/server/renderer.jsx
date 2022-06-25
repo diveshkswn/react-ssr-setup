@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDom from 'react-dom/server';
 import App from '../shared/App';
-
-const markup = ReactDom.renderToString(<App />);
+import serialize from "serialize-javascript"
+const data = {
+  name : "Divesh",
+  age : 25,
+}
+const markup = ReactDom.renderToString(<App serverData={data} />);
 
 function renderer() {
   return `
@@ -15,6 +19,9 @@ function renderer() {
     <script src="/bundle.js" defer></script>
   <link href="/main.css" rel="stylesheet" />
     <title>React SSR App</title>
+    <script>
+    window.INITIAL_DATA = ${serialize(data)}
+    </script>
 </head>
 <body>
 
