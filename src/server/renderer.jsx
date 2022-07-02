@@ -28,6 +28,10 @@ function renderer({ initialData }) {
     <script>
     window.INITIAL_DATA = ${serialize(initialData)}
     </script>
+    <!-- Another way to pass Initial data from server -->
+    <script type="application/json" id="__INITIAL_DATA__">
+    ${serialize(initialData)}
+    </script>
 </body>
 </html>
     `;
