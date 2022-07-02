@@ -1,3 +1,4 @@
+/* eslint-disable import/no-import-module-exports */
 import express from 'express';
 import cors from 'cors';
 import { renderer } from './renderer';
@@ -19,3 +20,6 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is listing on port : ${PORT}`);
 });
+
+// for vercel serverless function
+export default app;
