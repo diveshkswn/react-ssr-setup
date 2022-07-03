@@ -11,12 +11,12 @@ const browserConfig = {
   mode: 'production',
   entry: './src/client/index.jsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist-client'),
     filename: 'bundle.js',
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'dist-client'),
     },
     compress: true,
     historyApiFallback: true,

@@ -2,7 +2,6 @@
 import React from 'react';
 import SampleComponent from './components/SampleComponent';
 import styles from './styles/App.css';
-import { fetchPopularRepos } from '../utils/api';
 
 export default function App({ serverData }) {
   console.log('initialData client : ', serverData);
