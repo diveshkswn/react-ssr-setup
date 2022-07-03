@@ -3,7 +3,7 @@ import ReactDom from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import App from '../shared/App';
 
-function renderer({ initialData }) {
+function renderer({ initialData = [] }) {
   // console.log('initialData server ::: ', initialData);
   const markup = ReactDom.renderToString(<App serverData={initialData} />);
 

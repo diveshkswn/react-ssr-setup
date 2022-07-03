@@ -14,6 +14,8 @@ const PORT = process.env.SERVER_PORT || 2000;
 app.get('*', (req, res) => {
   fetchPopularRepos().then((data) => {
     res.status(200).send(renderer({ initialData: data.items?.slice(0, 10) }));
+  }).catch(() => {
+    res.status(200).send(renderer({ initialData: [] }));
   });
 });
 app.listen(PORT, () => {
