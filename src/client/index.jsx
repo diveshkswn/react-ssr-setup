@@ -9,7 +9,7 @@ if (initialServerDataScript) {
   initialServerData = JSON.parse(initialServerDataScript.innerHTML);
 }
 
-ReactDom.hydrate(<React.StrictMode><App serverData={window.INITIAL_DATA} /></React.StrictMode>, document.getElementById('root'));
-
 // Another way to pass initial data from server
 // ReactDom.hydrate(<React.StrictMode><App serverData={initialServerData} /></React.StrictMode>, document.getElementById('root'));
+
+ReactDom.hydrate(<React.StrictMode><App serverData={window.INITIAL_DATA} /></React.StrictMode>, document.getElementById('root'));
